@@ -6,10 +6,16 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import useCachedResources from './hooks/useCachedResources';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import LinkingConfiguration from './navigation/LinkingConfiguration';
+import AdminScreen from './screens/AdminScreen'
+import AddCouponScreen from './screens/AddCouponScreen'
+import AddActionScreen from './screens/AddActionScreen'
+
+import { Provider as PaperProvider } from 'react-native-paper';
 
 import * as firebase from 'firebase';
 import "firebase/firestore";
 
+console.disableYellowBox = true;
 const Stack = createStackNavigator();
 
 const firebaseConfig = {
@@ -24,14 +30,6 @@ export default function App(props) {
   if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
   }
-
-  const dbh = firebase.firestore();
-  
-  dbh.collection("characters").doc("mario").set({
-    employment: "plumber",
-    outfitColor: "red",
-    specialAttack: "fireball"
-  })
   
   const isLoadingComplete = useCachedResources();
 
@@ -39,14 +37,19 @@ export default function App(props) {
     return null;
   } else {
     return (
+      <PaperProvider>
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
         <NavigationContainer linking={LinkingConfiguration}>
           <Stack.Navigator>
             <Stack.Screen name="Root" component={BottomTabNavigator} />
+            <Stack.Screen name="AdminScreen" component={AdminScreen} />
+            <Stack.Screen name="AddCoupon" component={AddCouponScreen} />
+            <Stack.Screen name="AddAction" component={AddActionScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </View>
+      </PaperProvider>
     );
   }
 }

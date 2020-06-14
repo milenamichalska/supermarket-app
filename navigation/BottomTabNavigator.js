@@ -66,7 +66,7 @@ function getHeaderTitle(route) {
 
   switch (routeName) {
     case 'Home':
-      return 'How to get started';
+      return 'Witaj w Aplikacji SupermarketApp!';
     case 'Punkty':
       return 'Punkty Plus';
   }
