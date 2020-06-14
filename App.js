@@ -7,9 +7,32 @@ import useCachedResources from './hooks/useCachedResources';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import LinkingConfiguration from './navigation/LinkingConfiguration';
 
+import * as firebase from 'firebase';
+import "firebase/firestore";
+
 const Stack = createStackNavigator();
 
+const firebaseConfig = {
+  apiKey: "AIzaSyCT1OSripopUO0ui-ZXFyXcxbutLkUOoW0",
+  authDomain: "io-supermarket-app.firebaseapp.com",
+  databaseURL: "https://io-supermarket-app.firebaseio.com",
+  projectId: "io-supermarket-app",
+  storageBucket: "io-supermarket-app.appspot.com"
+};
+
 export default function App(props) {
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+
+  const dbh = firebase.firestore();
+  
+  dbh.collection("characters").doc("mario").set({
+    employment: "plumber",
+    outfitColor: "red",
+    specialAttack: "fireball"
+  })
+  
   const isLoadingComplete = useCachedResources();
 
   if (!isLoadingComplete) {

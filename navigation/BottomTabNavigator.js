@@ -4,6 +4,7 @@ import * as React from 'react';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
+import PunktyScreen from '../screens/PunktyScreen';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
@@ -26,7 +27,7 @@ export default function BottomTabNavigator({ navigation, route }) {
       />
       <BottomTab.Screen
         name="Punkty"
-        component={LinksScreen}
+        component={PunktyScreen}
         options={{
           title: 'Punkty Plus',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-trophy" />,
@@ -66,7 +67,7 @@ function getHeaderTitle(route) {
   switch (routeName) {
     case 'Home':
       return 'How to get started';
-    case 'Links':
-      return 'Links to learn more';
+    case 'Punkty':
+      return 'Punkty Plus';
   }
 }
