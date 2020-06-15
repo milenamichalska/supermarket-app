@@ -21,7 +21,10 @@ https://yarnpkg.com/en/docs/install
 #### Expo
 Żeby wyświetlić aplikacje na swoim telefonie potrzebna jest aplikacja Expo i Expo CLI.
 `npm install expo-cli --global`
+
 Android App: https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www
+
+
 iOS App: https://itunes.apple.com/app/apple-store/id982107779
 
 ### Instalacja pakietów
