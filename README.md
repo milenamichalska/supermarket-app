@@ -19,3 +19,17 @@ W dodatku do Node.js używam menadżera pakietów `yarn`.
 https://yarnpkg.com/en/docs/install
 
 #### Expo
+Żeby wyświetlić aplikacje na swoim telefonie potrzebna jest aplikacja Expo i Expo CLI.
+`npm install expo-cli --global`
+Android App: https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www
+iOS App: https://itunes.apple.com/app/apple-store/id982107779
+
+### Instalacja pakietów
+Po sklonowaniu repozytorium uruchom w katalogu polecenie
+`yarn install`
+które pobierze i zainstaluje pakiety i biblioteki potrzebne do działania aplikacji.
+
+### Uruchomienie
+Uruchom projekt poleceniem
+`npm start`
+W konsoli i w nowootwartym oknie przeglądarki pojawi się kod QR. Po zeskanowaniu kodu w Aplikacji Expo aplikacja zbuduje się pod dane urządzenie i będzie można ją wyświetlić na swoim telefonie. 
